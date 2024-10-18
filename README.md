@@ -1,4 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# Frontend Mentor - Interactive Pricing Component Solution
+
+This is a solution to the [Interactive Pricing Component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-pricing-component-t0m8PIyY8). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
+## Table of Contents
+
+- [Overview](#overview)
+  - [The Challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My Process](#my-process)
+  - [Built With](#built-with)
+  - [What I Learned](#what-i-learned)
+  - [Continued Development](#continued-development)
+  - [Useful Resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+### The Challenge
+
+Users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Use the slider and toggle to see prices for different page view numbers
+- Toggle between monthly and yearly billing options with a discount
+
+### Screenshot
+
+![Pricing Component Screenshot](./screenshot.jpg)
+
+### Links
+
+- [Solution URL](#) <!-- Add your solution URL -->
+- [Live Site URL](#) <!-- Add your live site URL -->
+
+## My Process
+
+### Built With
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/UI components](https://shadcn.dev/)
+
+### What I Learned
+
+This project allowed me to solidify my knowledge of React, Next.js, and Tailwind CSS. Here are a few key things I learned:
+
+1. Using `useState` and `useEffect` for dynamic pricing and toggling between yearly/monthly billing with a discount.
+
+2. Implementing a custom slider input with interactive styling for smooth transitions.
+
+```js
+useEffect(() => {
+  let selectedPlan = pricingData[2]; // Default plan
+  if (pageviews <= 10) selectedPlan = pricingData[0];
+  else if (pageviews <= 50) selectedPlan = pricingData[1];
+  else if (pageviews <= 100) selectedPlan = pricingData[2];
+  else if (pageviews <= 500) selectedPlan = pricingData[3];
+  else selectedPlan = pricingData[4];
+  
+  const basePrice = selectedPlan.price;
+  setPrice(isYearly ? basePrice * 0.75 : basePrice);
+}, [pageviews, isYearly]);
+
 
 ## Getting Started
 
