@@ -5,11 +5,10 @@ import Image from "next/image";
 import { Switch } from "@/components/ui/switch";
 
 export default function PricingComponent() {
-  const [pageviews, setPageviews] = useState(100); // Default is 100K pageviews
+  const [pageviews, setPageviews] = useState(100); 
   const [isYearly, setIsYearly] = useState(false);
-  const [price, setPrice] = useState(16); // Default is $16 per month for 100K pageviews
+  const [price, setPrice] = useState(16); 
 
-  // Predefined price tiers
   const pricingData = [
     { views: 10, price: 8 },
     { views: 50, price: 12 },
@@ -19,28 +18,28 @@ export default function PricingComponent() {
   ];
 
   useEffect(() => {
-    // Set price based on slider value
-    let selectedPlan = pricingData[2]; // Default to 100K pageviews
+   
+    let selectedPlan = pricingData[2]; 
     
     if (pageviews <= 10) {
-      selectedPlan = pricingData[0]; // 10K pageviews
+      selectedPlan = pricingData[0];
     } else if (pageviews <= 50) {
-      selectedPlan = pricingData[1]; // 50K pageviews
+      selectedPlan = pricingData[1]; 
     } else if (pageviews <= 100) {
-      selectedPlan = pricingData[2]; // 100K pageviews
+      selectedPlan = pricingData[2]; 
     } else if (pageviews <= 500) {
-      selectedPlan = pricingData[3]; // 500K pageviews
+      selectedPlan = pricingData[3]; 
     } else {
-      selectedPlan = pricingData[4]; // 1M pageviews
+      selectedPlan = pricingData[4]; 
     }
 
-    // Set price with or without yearly discount
+
     const basePrice = selectedPlan.price;
     setPrice(isYearly ? basePrice * 0.75 : basePrice);
   }, [pageviews, isYearly]);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPageviews(Number(e.target.value)); // Keep slider functionality unchanged
+    setPageviews(Number(e.target.value)); 
   };
 
   return (

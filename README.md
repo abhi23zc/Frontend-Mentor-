@@ -30,12 +30,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Pricing Component Screenshot](./screenshot.jpg)
+![Pricing Component Screenshot](./screenshot.png)
 
 ### Links
 
-- [Solution URL](#) <!-- Add your solution URL -->
-- [Live Site URL](#) <!-- Add your live site URL -->
+- [Solution URL](#) https://github.com/abhi23zc/Frontend-Mentor-/tree/master
+- [Live Site URL](#) 
 
 ## My Process
 
@@ -60,7 +60,7 @@ This project allowed me to solidify my knowledge of React, Next.js, and Tailwind
 
 ```js
 useEffect(() => {
-  let selectedPlan = pricingData[2]; // Default plan
+  let selectedPlan = pricingData[2]; 
   if (pageviews <= 10) selectedPlan = pricingData[0];
   else if (pageviews <= 50) selectedPlan = pricingData[1];
   else if (pageviews <= 100) selectedPlan = pricingData[2];
